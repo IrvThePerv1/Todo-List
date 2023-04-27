@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .task-name {
+        padding-right: 10px;
+        text-align: center; 
+        padding-top: 5px;
+    }
+    
+    .description {
+        padding-left: 10px; 
+        text-align: center;
+        padding-top: 5px;
+    }
+    table {
+        margin:auto;
+        width: 60%
+    }
+
+</style>
+<table>
+    <tr>
+        <th style="padding-bottom: 8px;">Task</th>
+        <th style="padding-bottom: 8px;">Description</th>
+        <th style="padding-bottom: 8px;">Due Date</th>
+    </tr>
+    
+    {% for task in tasks %}
+    <tr>
+        <td class="task-name"><a href="{% url 'item' task.id %}">{{task.task_name}}</a></td>
+        <td class="description">{{task.description}}</td>
+        <td class="description">{{task.due_date}}</td>
+        <td><a href="{% url 'update-task' task.id %}" style="padding-left: 10px;">Edit/Update</a><a href="{% url 'delete-task' task.id %}" style="padding-left: 16px;">Delete</a></td>
+    </tr>
+    <tr>
+        <td colspan="4"><hr></td>
+    </tr>
+    {% endfor %}
+</table>
+    
+
+{% endblock content %}

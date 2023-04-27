@@ -1,0 +1,31 @@
+<style>
+    div {
+        text-align: center;
+    }
+    img {
+        width: 600px;
+        height: 100px;
+        object-fit: cover;
+    }
+    h1 {
+        text-align: center;
+    }
+</style>
+
+<h1>Todo List</h1>
+<div>
+    <a href="{% url 'list' %}"><img src="https://www.workflowmax.com/hubfs/6-things-to-do-list.png"></a>
+</div>
+{% if request.path != '/' and request.path == '/login' %}
+<a href="{% url 'list' %}" style="padding-right: 10px;">Home</a>
+{% endif %}
+{% if request.path == '/' %}
+<a href="{% url 'create-task' %}" style="padding-right: 10px;">Add Task</a>
+{% endif %}
+{% if user.is_authenticated != True %}
+<a href="{% url 'login' %}">Login</a>
+{% else %}
+<a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+
+<hr>

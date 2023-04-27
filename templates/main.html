@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<style>
+    body {
+        background-color: #ebf5f0;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% if messages %}
+    <div style="width: 700px; height: 50px; margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>

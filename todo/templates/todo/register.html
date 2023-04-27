@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Registration</h1>
+<div style="width: 700px; height: 200px; margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <ul style="list-style: none; padding: 0; text-align: left;">
+          {{ form.as_p }}
+        </ul>
+        <input type="submit" value="Submit">
+      </form>
+</div>
+
+
+
+
+{% endblock content %}
